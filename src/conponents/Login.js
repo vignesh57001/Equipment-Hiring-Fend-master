@@ -61,100 +61,119 @@ function Login() {
   });
   return (
     <>
-      <div
-        className="d-flex align-items-center justify-content-center"
-        style={{ height: "100vh", backgroundColor: "#DEDEDE" }}
-      >
-        <form
-          style={{
-            minWidth: "25%",
-            margin: "0 auto",
-          }}
-          onSubmit={(values) => {
-            formik.handleSubmit(values);
-          }}
-        >
-          <h4 className="text-center mb-4">Login</h4>
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              UserName
-            </label>
-            <input
-              type="email"
-              className="form-control shadow-none"
-              id="exampleInputEmail1"
-              placeholder="Enter your Email Id"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              name="email"
-            />
-            <div style={{ color: "red", textAlign: "end" }}>
-              {" "}
-              {formik.errors.email}
-            </div>
-          </div>
-          <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label ">
-              Password
-            </label>
-            <input
-              type="password"
-              className="form-control shadow-none"
-              id="exampleInputPassword1"
-              placeholder="Enter you Password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              name="password"
-            />
-            <div style={{ color: "red", textAlign: "end" }}>
-              {" "}
-              {formik.errors.password}
-            </div>
-          </div>
-          <div
-            className="mb-3 "
-            style={{
-              color: "blue",
-              textAlign: "end",
-              cursor: "pointer",
-            }}
-          >
-            <span
-              className="underline"
-              onClick={() => navigate("forgot-password")}
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6">
+            <div
+              className="d-flex align-items-center justify-content-center"
+              style={{ height: "100vh", backgroundColor: "#a46cac" }}
             >
-              Forgot Password
-            </span>
+              <form
+                style={{
+                  minWidth: "25%",
+                  margin: "0 auto",
+                }}
+                onSubmit={(values) => {
+                  formik.handleSubmit(values);
+                }}
+              >
+                <h3 className="text-center mb-4">Login</h3>
+                <div className="mb-3">
+                  <label for="exampleInputEmail1" className="form-label">
+                    Username
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control shadow-none"
+                    id="exampleInputEmail1"
+                    placeholder="Enter Email Id"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    name="email"
+                  />
+                  <div style={{ color: "red", textAlign: "end" }}>
+                    {" "}
+                    {formik.errors.email}
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <label for="exampleInputPassword1" className="form-label ">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control shadow-none"
+                    id="exampleInputPassword1"
+                    placeholder="Enter you Password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    name="password"
+                  />
+                  <div style={{ color: "red", textAlign: "end" }}>
+                    {" "}
+                    {formik.errors.password}
+                  </div>
+                </div>
+                <div
+                  className="mb-3 "
+                  style={{
+                    color: "blue",
+                    textAlign: "end",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span
+                    className="underline"
+                    onClick={() => navigate("forgot-password")}
+                  >
+                    Forgot Password
+                  </span>
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  disabled={!formik.isValid}
+                >
+                  User Login
+                </button>{" "}
+                {loading ? (
+                  <img
+                    src={loads}
+                    alt="load"
+                    style={{ width: "3rem", paddingLeft: "10px" }}
+                  />
+                ) : null}
+                <div
+                  className="mt-3 "
+                  style={{
+                    color: "blue",
+                    textAlign: "left",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span
+                    className="underline"
+                    onClick={() => navigate("/register")}
+                  >
+                    {" "}
+                    Create NewUser
+                  </span>
+                </div>
+              </form>
+              <ToastContainer />
+            </div>
           </div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={!formik.isValid}
-          >
-            Login
-          </button>{" "}
-          {loading ? (
-            <img
-              src={loads}
-              alt="load"
-              style={{ width: "3rem", paddingLeft: "10px" }}
-            />
-          ) : null}
           <div
-            className="mt-3 "
+            className="col-lg-6"
             style={{
-              color: "blue",
-              textAlign: "center",
-              cursor: "pointer",
+              backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRENfpDZaHp7j5MdZ0G4IuTWihlAmgSXeRFFQ&usqp=CAU")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "250px",
+              margin: "250px 0px 100px 0px",
             }}
-          >
-            <span className="underline" onClick={() => navigate("/register")}>
-              {" "}
-              Create New User
-            </span>
-          </div>
-        </form>
-        <ToastContainer />
+          ></div>
+        </div>
       </div>
     </>
   );
