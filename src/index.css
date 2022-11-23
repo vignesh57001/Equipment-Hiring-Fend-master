@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input{
+    outline: none !important;
+
+}
+
+.underline:hover{
+        border-bottom: 2.5px solid blue;
+}
